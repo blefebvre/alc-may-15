@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "projectType": "doc"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.alc.ca/content/alc/en.html"
+      ],
+      "description": "ALC homepage - main landing page with hero carousel, winners carousel, and featured games",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            "section.fca-carousel.hero"
+          ]
+        },
+        {
+          "name": "carousel-winners",
+          "instances": [
+            "section.winners-carousel .winners-carousel-slides"
+          ]
+        },
+        {
+          "name": "cards-game",
+          "instances": [
+            ".featured-games .game-tiles"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Carousel",
+          "selector": "section.fca-carousel.hero",
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Recent Winners",
+          "selector": [
+            "section.winners-carousel-header",
+            "section.winners-carousel"
+          ],
+          "style": "winners-section",
+          "blocks": [
+            "carousel-winners"
+          ],
+          "defaultContent": [
+            "section.winners-carousel-header h1"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Featured Games and Promotions",
+          "selector": [
+            "section.featured-games-and-promos-header",
+            "section.featured-games-and-promos"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-game"
+          ],
+          "defaultContent": [
+            "section.featured-games-and-promos-header h1",
+            ".promos .reference .cmp-image a"
+          ]
+        }
+      ]
+    }
+  ]
+}

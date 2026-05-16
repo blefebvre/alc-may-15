@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-game",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-15T20:49:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.alc.ca/content/alc/en.html",
+    "originPage": "ALC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "game-tiles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA per card",
+    "buttonCount": 1,
+    "imageCount": 7
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "game tile grids",
+      "product showcase cards with images and CTAs",
+      "featured items with image, title, description, and action button"
+    ],
+    "notSuitableFor": [
+      "text-only card layouts",
+      "testimonial cards",
+      "icon-based feature lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/alc/en"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-15T20:49:00.000Z"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "carousel-winners",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-05-15T20:49:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.alc.ca/content/alc/en.html",
+    "originPage": "ALC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "winners",
+    "imagePattern": "mixed"
+  },
+  "contentPattern": {
+    "structure": "image + name + location + game + prize per slide",
+    "buttonCount": 1,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "winner showcase carousels",
+      "testimonial carousels with structured data",
+      "person/profile highlight carousels"
+    ],
+    "notSuitableFor": [
+      "hero promotional carousels",
+      "simple image galleries",
+      "product feature carousels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/alc/en"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-15T20:49:00.000Z"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-05-15T20:49:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.alc.ca/content/alc/en.html",
+    "originPage": "ALC homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colorful",
+    "density": "wide",
+    "purpose": "hero-promo",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image slides with links",
+    "buttonCount": 0,
+    "imageCount": 5
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners",
+      "full-width promotional carousels",
+      "landing page hero sections with rotating promotions"
+    ],
+    "notSuitableFor": [
+      "content carousels with significant text per slide",
+      "product detail carousels",
+      "testimonial sliders"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/alc/en"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-15T20:49:00.000Z"
+  }
+}

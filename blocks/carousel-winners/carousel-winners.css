@@ -1,0 +1,259 @@
+/* Block: carousel-winners -- Winners carousel with horizontal slides */
+
+/* Extracted values from source: https://www.alc.ca/content/alc/en.html */
+
+/* === Slides container === */
+.carousel-winners .carousel-winners-slides-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* === Slides list === */
+.carousel-winners .carousel-winners-slides,
+.carousel-winners .carousel-winners-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-winners .carousel-winners-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-winners .carousel-winners-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* === Individual slide === */
+.carousel-winners .carousel-winners-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  padding: 20px 16px 10px;
+  box-sizing: border-box;
+}
+
+/* === Slide image cell (empty in current content, reserved for winner photo) === */
+.carousel-winners .carousel-winners-slide .carousel-winners-slide-image {
+  display: none;
+}
+
+/* === Slide content cell === */
+.carousel-winners .carousel-winners-slide .carousel-winners-slide-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* === Winner name (h3) === */
+
+/* Source: font-size 22px, font-weight 700, color white, line-height 24.2px */
+.carousel-winners .carousel-winners-slide-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  color: #fff;
+  margin: 0 0 4px;
+  line-height: 24.2px;
+}
+
+/* === Winner location (first p) === */
+
+/* Source: font-size 18px, font-weight 200, color white, line-height 19.8px */
+.carousel-winners .carousel-winners-slide-content p {
+  font-size: 18px;
+  font-weight: 200;
+  font-family: var(--body-font-family);
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 19.8px;
+}
+
+/* === Game logo image === */
+
+/* Source: width 54px, height 54px */
+.carousel-winners .carousel-winners-slide-content p picture {
+  display: inline-block;
+  line-height: 0;
+}
+
+.carousel-winners .carousel-winners-slide-content p img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 0;
+  vertical-align: middle;
+}
+
+/* Reduce margin on the picture paragraph */
+.carousel-winners .carousel-winners-slide-content p:has(picture) {
+  margin: 0 0 6px;
+}
+
+/* === CTA link ("See all winners") === */
+
+/* Source: bg rgb(0,111,175), color white, border 2px solid white, border-radius 30px */
+
+/* font-size 18px, font-weight 500, line-height 41px, padding 0 45px 0 15px */
+.carousel-winners .carousel-winners-slide-content p:last-child {
+  margin-top: 10px;
+}
+
+.carousel-winners .carousel-winners-slide-content a:any-link {
+  background-color: var(--link-color);
+  color: #fff;
+  padding: 0 45px 0 15px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--body-font-family);
+  line-height: 41px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.carousel-winners .carousel-winners-slide-content a:any-link::after {
+  content: "\2794";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.carousel-winners .carousel-winners-slide-content a:any-link:hover,
+.carousel-winners .carousel-winners-slide-content a:any-link:focus-visible {
+  background-color: var(--link-hover-color);
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* === Dot indicators === */
+
+/* Source: active dot orange rgb(242,148,0), inactive light blue rgb(179,221,251) opacity 0.25 */
+
+/* Dot size: 8px circles */
+.carousel-winners .carousel-winners-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 10px;
+  padding: 12px;
+  background-color: transparent;
+  line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-winners .carousel-winners-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgb(179 221 251 / 40%);
+  border: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.carousel-winners .carousel-winners-slide-indicator button:disabled,
+.carousel-winners .carousel-winners-slide-indicator button:hover,
+.carousel-winners .carousel-winners-slide-indicator button:focus-visible {
+  background-color: rgb(242 148 0);
+}
+
+/* === Navigation arrows === */
+
+/* Source: white chevrons, 22px wide, 96px tall, transparent bg */
+.carousel-winners .carousel-winners-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-winners .carousel-winners-navigation-buttons button {
+  position: relative;
+  width: 22px;
+  height: 96px;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  pointer-events: auto;
+  color: transparent;
+  overflow: hidden;
+}
+
+.carousel-winners .carousel-winners-navigation-buttons button:hover,
+.carousel-winners .carousel-winners-navigation-buttons button:focus-visible {
+  opacity: 0.7;
+}
+
+.carousel-winners .carousel-winners-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 3px solid #fff;
+  border-bottom: 0;
+  border-left: 0;
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-winners .carousel-winners-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* === Desktop layout === */
+@media (width >= 600px) {
+  .carousel-winners .carousel-winners-navigation-buttons {
+    left: 22px;
+    right: 22px;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-winners .carousel-winners-slide {
+    min-height: 245px;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 60px 10px;
+  }
+
+  .carousel-winners .carousel-winners-slide .carousel-winners-slide-content {
+    text-align: left;
+    max-width: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,278 @@
+/* Block: carousel-hero
+ * Full-width promotional image carousel matching ALC.ca hero section.
+ * Source: section.fca-carousel.hero on https://www.alc.ca/content/alc/en.html
+ *
+ * Extracted values:
+ *   - Block: 780x525, aspect ratio ~0.67
+ *   - Controls bar: bottom, rgba(255,255,255,0.9), height 52px
+ *   - Arrows: color rgb(0,157,219), 40px wide
+ *   - Dots: 10px circles, inactive rgb(105,114,123), active rgb(0,157,219)
+ *   - Dot container (pagination-nav): flex, centered, flex-grow 1
+ */
+
+/* Full-width wrapper override */
+.carousel-hero-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Block root */
+.carousel-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Slides container */
+.carousel-hero .carousel-hero-slides-container {
+  position: relative;
+}
+
+/* Slides list and indicator list: reset defaults */
+.carousel-hero .carousel-hero-slides,
+.carousel-hero .carousel-hero-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal scroll-snap slides */
+.carousel-hero .carousel-hero-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-hero .carousel-hero-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual slide */
+.carousel-hero .carousel-hero-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  /* Source aspect ratio: 525/780 = 0.6731 */
+  aspect-ratio: 780 / 525;
+}
+
+/* Slide image: absolute fill */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+  position: static;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Slide content: hidden, the whole slide is a clickable image
+ * The link text is for accessibility only; the image is the visual.
+ * Make the link cover the entire slide for click area.
+ */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: transparent;
+  width: 100%;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content p {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  text-decoration: none;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* Reset EDS button styling on these links */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content p.button-wrapper {
+  margin: 0;
+  height: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content a.button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* ---- Controls bar at bottom ----
+ * Source: .controls { position: absolute, bottom: 0, bg: rgba(255,255,255,0.9), height: 52px, z-index: 10 }
+ * In EDS, the indicators are in a <nav> after .carousel-hero-slides-container
+ * and nav buttons are inside .carousel-hero-slides-container.
+ * We replicate the ALC controls bar using the <nav> element.
+ */
+
+/* Nav indicators bar: overlay at bottom of carousel, same position as arrows */
+.carousel-hero > nav {
+  background-color: rgb(255 255 255 / 90%);
+  display: flex;
+  align-items: center;
+  height: 52px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* Slide indicators: centered dots */
+.carousel-hero .carousel-hero-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 0;
+  padding: 0;
+  background-color: transparent;
+  line-height: 0;
+}
+
+/* Dot indicator buttons */
+.carousel-hero .carousel-hero-slide-indicator button {
+  /* Source: paginator button 44x24, dot via ::after 10x10 */
+  width: 44px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  transition: none;
+}
+
+/* Dot rendered via ::after pseudo-element */
+.carousel-hero .carousel-hero-slide-indicator button::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  /* Source inactive dot: rgb(105, 114, 123) = --text-color */
+  background-color: var(--text-color);
+  margin: 0 auto;
+  transition: background-color 0.2s;
+}
+
+/* Active dot: rgb(0, 157, 219) = --dark-color */
+.carousel-hero .carousel-hero-slide-indicator button:disabled::after,
+.carousel-hero .carousel-hero-slide-indicator button:hover::after,
+.carousel-hero .carousel-hero-slide-indicator button:focus-visible::after {
+  background-color: var(--dark-color);
+}
+
+/* Override disabled button appearance */
+.carousel-hero .carousel-hero-slide-indicator button:disabled {
+  background-color: transparent;
+}
+
+/* ---- Navigation arrows ----
+ * Source: Previous/Next buttons, width 40px, height 52px, color rgb(0,157,219),
+ *   positioned at left/right ends of the controls bar.
+ * In EDS, arrows are inside .carousel-hero-navigation-buttons within .carousel-hero-slides-container.
+ * We reposition them to be at the bottom controls bar like the source.
+ */
+.carousel-hero .carousel-hero-navigation-buttons {
+  position: absolute;
+  inset: auto 0 0;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 11;
+  height: 52px;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-navigation-buttons button {
+  position: relative;
+
+  /* Source: 40x52, no border, no bg, color rgb(0,157,219) */
+  width: 40px;
+  height: 52px;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--dark-color);
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.2s;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button:hover,
+.carousel-hero .carousel-hero-navigation-buttons button:focus-visible {
+  background-color: transparent;
+  color: var(--link-color);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- arrow ::after intentionally after dot ::after */
+.carousel-hero .carousel-hero-navigation-buttons button::after {
+  display: block;
+  content: "";
+  border: 3px solid;
+  border-bottom: 0;
+  border-left: 0;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+  color: inherit;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* ---- Responsive ---- */
+
+@media (width >= 900px) {
+  .carousel-hero .carousel-hero-navigation-buttons {
+    left: 0;
+    right: 0;
+  }
+}
